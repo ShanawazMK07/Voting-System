@@ -1,0 +1,121 @@
+
+
+<div class="dark-background">
+    <h1>Voting Information</h1>
+    
+    <!-- Display total voters -->
+    <p>Total Voters: {{ totalVoters }}</p>
+    
+    <!-- Display all voters -->
+    <div *ngIf="allVoters.length > 0" >
+        <h2>All Voters</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Constituency ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let voter of allVoters">
+              <td>{{ voter.id }}</td>
+              <td>{{ voter.name }}</td>
+              <td>{{ voter.age }}</td>
+              <td>{{ voter.gender }}</td>
+              <td>{{ voter.constituencyId }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    
+  <!-- Input field and button to fetch voter details by ID -->
+<div>
+    <h2>Voter Details</h2>
+    <input #voterIdInput type="number" placeholder="Enter Voter ID">
+    <button (click)="getVoterById(+voterIdInput.value)">Get Voter</button>
+
+  
+ <!-- Display Voter Details in a table if voter is defined -->
+<div *ngIf="voter">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Constituency ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ voter.id }}</td>
+          <td>{{ voter.name }}</td>
+          <td>{{ voter.age }}</td>
+          <td>{{ voter.gender }}</td>
+          <td>{{ voter.constituencyId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+  
+
+      <!-- Display total voters by gender -->
+      <div>
+        <h2>Total Voters by Gender</h2>
+        <div class="button-container">
+          <button (click)="getTotalVotersByGender('male')">Get Male Voters Count</button>
+          <button (click)="getTotalVotersByGender('female')">Get Female Voters Count</button>
+        </div>
+        <p>Count: {{ genderCount }}</p>
+      </div>
+    
+    <!-- Form to add a new voter -->
+    <div>
+        <h2>Add New Voter</h2>
+        <form (ngSubmit)="addVoter()">
+          <label for="name">Name:</label>
+          <input id="name" [(ngModel)]="newVoter.name" name="name" placeholder="voter name" required>
+          
+          <label for="age">Age:</label>
+          <input id="age" type="number" [(ngModel)]="newVoter.age" name="age" required>
+          
+          <label for="gender">Gender:</label>
+          <select id="gender" [(ngModel)]="newVoter.gender" name="gender" required style="height: 40px; font-size: 16px;">
+            <option value="" disabled>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          
+          <label for="constituencyId">Constituency:</label>
+          <select id="constituencyId" [(ngModel)]="newVoter.constituencyId" name="constituencyId" required style="height: 40px; font-size: 16px;">
+            <option value="" disabled>Select Constituency</option>
+            <option *ngFor="let constituency of constituencies" [value]="constituency.id">
+              {{ constituency.name }}
+            </option>
+          </select>
+
+          <button type="submit">Add Voter</button>
+        </form>
+      </div>
+
+      </div>
+      
+    <!-- Display voters by constituency -->
+    <!-- <div>
+        <h2>Voters by Constituency</h2>
+        <input #constituencyIdInput type="number" placeholder="Enter Constituency ID">
+        <button (click)="getVotersByConstituency(+constituencyIdInput.value)">Get Voters</button>
+        <ul *ngIf="votersByConstituency.length > 0">
+          <li *ngFor="let voter of votersByConstituency">{{ voter.name }} (ID: {{ voter.id }})</li>
+        </ul>
+      </div>
+  </div> -->
+  

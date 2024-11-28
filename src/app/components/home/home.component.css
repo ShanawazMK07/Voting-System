@@ -1,0 +1,48 @@
+/* src/app/home/home.component.css */
+
+@keyframes universeAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://th.bing.com/th/id/R.566a12e631c854dd017210ee7acf87b6?rik=IvzHWL23%2b3jjdg&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f7000000%2fSpace-Art-Wallpaper-space-7076586-1920-1200.jpg&ehk=5Tk%2fO8SCeqHm8TTHdoC2dPIY7eH6hZKSDh7cwr3qn2k%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+    background-attachment: fixed;
+    animation: universeAnimation 15s linear infinite;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  

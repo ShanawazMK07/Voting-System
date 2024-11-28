@@ -1,0 +1,60 @@
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes universeAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+  
+
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px; /* Increased padding for more height */
+    height: 80px; /* Increased height for the navbar */
+    background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://th.bing.com/th/id/R.566a12e631c854dd017210ee7acf87b6?rik=IvzHWL23%2b3jjdg&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f7000000%2fSpace-Art-Wallpaper-space-7076586-1920-1200.jpg&ehk=5Tk%2fO8SCeqHm8TTHdoC2dPIY7eH6hZKSDh7cwr3qn2k%3d&risl=&pid=ImgRaw&r=0'); /* Space image URL */
+    background-size: cover;
+    background-attachment: fixed;
+    animation: universeAnimation 15s linear infinite;
+    color: #fff; /* White text color for contrast */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+}
+
+.nav-item {
+    margin: 0 20px;
+}
+
+.nav-link {
+    color: #e9e5ec;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    animation: blink 1s infinite; 
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+}
+
+.nave{
+text-align: right;
+}

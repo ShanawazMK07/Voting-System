@@ -1,0 +1,80 @@
+<div class="dark-background">
+    <h1>Constituency Management</h1>
+  
+    <!-- Display all constituencies -->
+    <div *ngIf="constituencies.length > 0">
+      <h2>All Constituencies</h2>
+      <ul>
+        <li *ngFor="let constituency of constituencies">
+          {{ constituency.name }} (ID: {{ constituency.id }})
+          <button (click)="getConstituencyById(constituency.id!)">View Details</button>
+          <button (click)="getVotersByConstituency(constituency.id!)">View Voters</button>
+          <button (click)="getTotalVotersByConstituency(constituency.id!)">Get Total Voters</button>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Display constituency details -->
+    <div *ngIf="selectedConstituency">
+        <h2>Constituency Details</h2>
+        <table>
+          <tbody>
+            <tr>
+            <th>ID</th>
+              <td>{{ selectedConstituency.id }}</td>
+             
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ selectedConstituency.name }}</td>
+            </tr>
+            <!-- Add more fields as necessary -->
+          </tbody>
+        </table>
+      </div>
+      
+  
+    <!-- Form to add a new constituency -->
+    <div>
+      <h2>Add New Constituency</h2>
+      <form (ngSubmit)="addConstituency()">
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="newConstituency.name" name="name" placeholder="constituency" required>
+        <button type="submit">Add Constituency</button>
+      </form>
+    </div>
+  
+    <!-- Display voters by constituency -->
+    <div *ngIf="votersByConstituency.length > 0">
+        <h2>Voters by Constituency</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Constituency ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let voter of votersByConstituency">
+              <td>{{ voter.id }}</td>
+              <td>{{ voter.name }}</td>
+              <td>{{ voter.age }}</td>
+              <td>{{ voter.gender }}</td>
+              <td>{{ voter.constituencyId }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  
+    <!-- Display total number of voters by constituency -->
+    <div *ngIf="totalVotersByConstituency !== undefined">
+      <h2>Total Voters</h2>
+      <p>Count: {{ totalVotersByConstituency }}</p>
+    </div>
+  </div>
+
+  

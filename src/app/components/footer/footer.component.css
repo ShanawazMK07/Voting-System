@@ -1,0 +1,35 @@
+/* Define the universe background animation */
+@keyframes universeAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px; /* Increased padding for more height */
+    height: 80px; /* Increased height for the navbar */
+    background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://th.bing.com/th/id/R.566a12e631c854dd017210ee7acf87b6?rik=IvzHWL23%2b3jjdg&riu=http%3a%2f%2fimages2.fanpop.com%2fimages%2fphotos%2f7000000%2fSpace-Art-Wallpaper-space-7076586-1920-1200.jpg&ehk=5Tk%2fO8SCeqHm8TTHdoC2dPIY7eH6hZKSDh7cwr3qn2k%3d&risl=&pid=ImgRaw&r=0'); /* Space image URL */
+    background-size: cover;
+    background-attachment: fixed;
+    animation: universeAnimation 15s linear infinite;
+    color: #fff; /* White text color for contrast */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .footer-content {
+    max-width: 1200px; /* Set a maximum width for content */
+    margin: 0 auto; /* Center content horizontally */
+  }
+  
+  .footer-center {
+    padding: 10px; /* Add padding inside the center content */
+  }
+  
+  .footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 1em; /* Adjust font size */
+  }
+  
